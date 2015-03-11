@@ -1,0 +1,12 @@
+{
+    "name": "elzzup/work",
+    "authors": [
+        {
+            "name": "elzzup",
+            "email": "guild0105@gmail.com"
+        }
+    ],
+    "require": {
+        "fabpot/goutte": "~2.0"
+    }
+}
