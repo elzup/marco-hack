@@ -1,2 +1,4 @@
 vendor/
 key.php
+config.py
+__pycache__/
