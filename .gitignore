@@ -1,2 +1,7 @@
 vendor/
 key.php
+
+__pycache__/
+config.py
+ghostdriver.log
+out.csv
