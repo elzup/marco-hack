@@ -6,8 +6,8 @@ import sys
 import datetime
 
 
-REPEAT = 5
-START_DAY = datetime.datetime(2015, 1, 14, 0, 0, 0)
+REPEAT = 2
+START_DAY = datetime.datetime(2015, 4, 12, 0, 0, 0)
 
 def inputText(driver, s, v):
     driver.find_element_by_css_selector(s).send_keys(v)
@@ -28,7 +28,6 @@ def select(driver, name, value):
 #     print("usage: $ python scrape.py [username] [password]")
 #     exit()
 
-# driver = webdriver.PhantomJS()
 driver = webdriver.Firefox()
 url = 'https://marco.ms.dendai.ac.jp/PTDU79130R/AX0101.aspx?mode=timeout'
 
