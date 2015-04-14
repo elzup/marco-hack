@@ -9,7 +9,7 @@ TDU Marco hack
 カード履歴クロール
 
 ```sh
-php ./activity.php
+python3 ./scrape.py
 ```
 
 * Recommended modules
@@ -19,17 +19,15 @@ php ./activity.php
 git clone git@github.com:elzzup/marco-hack.git
 cd marco-hack
 composer install
-cp ./key.php.default ./key.php
-vi ./key.php
+cp ./config.py.tmp ./config.py
+vi ./config.py
 ```
 
 edit to your profile
 
 ```diff
--define('USER_NAME', '歳納京子');
--define('USER_PASS', '********');
-+define('USER_NAME', '99xx999');
-+define('USER_PASS', 'abcdefg');
+-user = {'name': '******', 'passwd': '******'}
++user = {'name': '99fi999', 'passwd': 'hogefuga'}
 ```
 
 * Configuration
