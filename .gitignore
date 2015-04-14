@@ -5,3 +5,6 @@ __pycache__/
 config.py
 ghostdriver.log
 out.csv
+out.csv
+ghostdriver.log
+*.png
