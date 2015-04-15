@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
-import config as cfg
+import datetime
 import time
 import sys
-import datetime
-
-
-REPEAT = 2
-START_DAY = datetime.datetime(2015, 4, 12, 0, 0, 0)
+import config as cfg
 
 def inputText(driver, s, v):
     driver.find_element_by_css_selector(s).send_keys(v)
@@ -39,11 +35,11 @@ inputText(driver, "#TextBox_Password", cfg.user['passwd'] + "\n")
 
 driver.execute_script('javascript:location.href="/PTDU79130R/AX1301.aspx?targeturl=https://marco.ms.dendai.ac.jp/ReportServer/Pages/ReportViewer.aspx?%2fPTDU79130R%2freport_GSY0205&params=USER_ID&rs:Command=Render&system=rs";')
 
-target_day = START_DAY
+target_day = cfg.START_DAY
 
 datas = []
 datas.append('')
-for i in range(REPEAT):
+for i in range(cfg.REPEAT):
     datestr = target_day.strftime("%Y/%m/%d")
     driver.execute_script('javascript:document.getElementById("ReportViewerControl_ctl04_ctl05_txtValue").value="' + datestr + '"')
     click(driver, "#ReportViewerControl_ctl04_ctl00")
