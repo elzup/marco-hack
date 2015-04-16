@@ -1,8 +1,17 @@
+# package lib
 vendor/
+
+# top secret
+config.py
 key.php
 
-__pycache__/
-config.py
+# result
 ghostdriver.log
+__pycache__/
+
+# result
 out.csv
+
+# dust
+back/
 *.png
