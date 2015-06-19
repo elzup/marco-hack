@@ -2,7 +2,6 @@
 from bs4 import BeautifulSoup
 import urllib
 import requests
-from collections import OrderedDict
 import time
 import datetime
 
@@ -60,23 +59,28 @@ headers = {
 r = s.get('https://marco.ms.dendai.ac.jp/PTDU79130R/AX0101.aspx')
 soup = BeautifulSoup(r.text)
 
-params = OrderedDict([
-    ('__EVENTTARGET', ''),
-    ('__EVENTARGUMENT', ''),
-    ('__VIEWSTATE', soup.find('input', id='__VIEWSTATE')['value']),
-    ('__EVENTVALIDATION', soup.find('input', id='__EVENTVALIDATION')['value']),
-    ('TextBox_UserID', cfg.user['name']),
-    ('TextBox_Password', cfg.user['passwd']),
-    ('Button_Login', 'ログイン'),
-])
+params = {
+    '__EVENTTARGET': '',
+    '__EVENTARGUMENT': '',
+    '__VIEWSTATE': soup.find('input', id='__VIEWSTATE')['value'],
+    '__EVENTVALIDATION': soup.find('input', id='__EVENTVALIDATION')['value'],
+    'TextBox_UserID': cfg.user['name'],
+    'TextBox_Password': cfg.user['passwd'],
+    'Button_Login': 'ログイン',
+}
 
 print(params)
 r = s.post('https://marco.ms.dendai.ac.jp/PTDU79130R/AX0101.aspx', data=params, headers=headers)
-print(to_curl(r))
-
 soup = BeautifulSoup(r.text)
-print(soup.text)
 target_day = cfg.START_DAY
+
+params = {
+    'USER_ID': '12FI091'
+}
+r = s.post("https://marco.ms.dendai.ac.jp/ReportServer/Pages/ReportViewer.aspx?/PTDU79130R/report_GSY0205", data=params, headers=headers)
+soup = BeautifulSoup(r.text)
+print(soup.prettify())
+# s.get('https://marco.ms.dendai.ac.jp/ReportServer/Reserved.ReportViewerWebControl.axd?OpType=Calendar&LCID=1041&selectDate=2015%2f06%2f20')
 
 # datas = []
 # datas.append('')
