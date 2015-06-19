@@ -17,3 +17,6 @@ back/
 *.png
 
 *.pyc
+
+# JetBrains
+.idea/
